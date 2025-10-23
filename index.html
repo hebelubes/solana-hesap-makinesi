@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Solana Hesap Makinesi</title></head>
+<body>
+    <input id="num1" type="number" placeholder="İlk sayı">
+    <select id="op"><option>+</option><option>-</option><option>*</option><option>/</option></select>
+    <input id="num2" type="number" placeholder="İkinci sayı">
+    <button onclick="calculate()">Hesapla</button>
+    <p id="result"></p>
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
+    <script src="https://unpkg.com/@coral-xyz/anchor@latest/dist/browser/index.js"></script>
+    <script>
+        async function calculate() {
+            const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl("devnet"));
+            const provider = new anchor.AnchorProvider(connection, window.solana, {});
+            const programId = new solanaWeb3.PublicKey("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+            // Program ve hesapları bağla, işlemi çağır
+            alert("Solana cüzdanı ile bağlan ve hesapla!"); // Basit demo
+        }
+    </script>
+</body>
+</html>
